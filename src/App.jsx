@@ -5,33 +5,35 @@ import Card from "./Card";
 import ShoppingCart from "./ShoppingCart";
 
 export default function App() {
+ // holds all available products
   const [products, setProducts] = useState([]);
+
+  //stores items in cart
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setProducts([
-      {
-        id: 1,
-        title: "Wireless Mouse",
-        price: 19.99,
-        image: "https://via.placeholder.com/150"
-      },
-      {
-        id: 2,
-        title: "Keyboard",
-        price: 39.99,
-        image: "https://via.placeholder.com/150"
-      },
-      {
-        id: 3,
-        title: "Headphones",
-        price: 29.99,
-        image: "https://via.placeholder.com/150"
-      }
-    ]);
-  }, []);
-
+  setProducts([
+    {
+      id: 1,
+      title: "USB-C Charger",
+      price: 12.99,
+      image: "https://picsum.photos/200?random=1"
+    },
+    {
+      id: 2,
+      title: "Desk Lamp",
+      price: 24.50,
+      image: "https://picsum.photos/200?random=2"
+    },
+    {
+      id: 3,
+      title: "Phone Stand",
+      price: 8.99,
+      image: "https://picsum.photos/200?random=3"
+    }
+  ]);
+}, []);
 function addToCart(product) {
   const existing = cart.find(item => item.id === product.id);
 
@@ -62,7 +64,7 @@ function addToCart(product) {
       <div className="container mt-4">
         <SearchBar search={search} setSearch={setSearch} />
 
-        <h2 className="mb-3">Products</h2>
+        <h2 className="mb-3">Featured Items</h2>
         <div className="row">
           {filteredProducts.map(product => (
             <Card key={product.id} product={product} addToCart={addToCart} />
