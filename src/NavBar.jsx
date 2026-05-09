@@ -1,7 +1,8 @@
-export default function NavBar() {
+export default function NavBar({ cartCount }) {
   return (
-    <nav className="navbar navbar-dark bg-dark px-3">
-      <span className="navbar-brand mb-0 h1">AmazonStore</span>
+    <nav className="navbar px-4" style={{ backgroundColor: "#131921" }}>
+      <span className="navbar-brand text-white fw-bold fs-3">CampusCart</span>
+      <span className="text-white">Cart Items: {cartCount}</span>
     </nav>
   );
 }
